@@ -3,7 +3,7 @@ import Carrera from "./Carrera.js"
 document.getElementById('formCarrera').onsubmit = e => {
     e.preventDefault()
 
-    let div = document.getElementById('carrera').innerText
+    let div = document.getElementById('carrera')
 
     let nombreJ1 = document.getElementById('jugador1').value
     let nombreJ2 = document.getElementById('jugador2').value

@@ -8,7 +8,7 @@ class Carrera {
         this._jugadores = []
         this._dado = new Probabilidad()
         this._content = content
-        this._content = "asdasd"
+        this._content.innerHTML = ""
 
         for (let i = 0; i < noJugadores; i++) {
             let jugador = new Jugador(nombres[i])
@@ -31,20 +31,20 @@ class Carrera {
 
     turno(jugador) {
         console.log(`Turno del Jugador ${jugador.Nombre}.`)
-        this._content += `Turno del Jugador ${jugador.Nombre}.<br>`
+        this._content.innerHTML += `Turno del Jugador ${jugador.Nombre}.<br>`
 
         let casillasAvanzar = this.Dado.obtenerDato()
 
         console.log(`El jugador ${jugador.Nombre} deberá avanzar ${casillasAvanzar} casillas.`)
-        this._content += `El jugador ${jugador.Nombre} deberá avanzar ${casillasAvanzar} casillas.<br>`
+        this._content.innerHTML += `El jugador ${jugador.Nombre} deberá avanzar ${casillasAvanzar} casillas.<br>`
 
         jugador.mover(casillasAvanzar)
 
         console.log(`Eljugador ${jugador.Nombre} ahora se encuentra en la casilla ${jugador.Posicion}`)
-        this._content += `Eljugador ${jugador.Nombre} ahora se encuentra en la casilla ${jugador.Posicion}<br>`
+        this._content.innerHTML += `Eljugador ${jugador.Nombre} ahora se encuentra en la casilla ${jugador.Posicion}<br>`
 
         console.log(`---------------------------------------`)
-        this._content += `---------------------------------------<br>`
+        this._content.innerHTML += `---------------------------------------<br>`
 
     }
 
@@ -52,7 +52,7 @@ class Carrera {
         let ganadores = []
 
         this.Jugadores.forEach(jugador => {
-            if (jugador.esGanador() == true) {
+            if (jugador.esGanador()) {
                 ganadores.push(jugador)
             }
         })
@@ -75,16 +75,16 @@ class Carrera {
         let ganadores = this.ganador()
 
         console.log("Ganadores:")
-        this._content += "Ganadores:<br>"
+        this._content.innerHTML += "Ganadores:<br>"
 
         if (ganadores.length >= 2) {
             console.log("Hubo empate")
-            this._content += "Hubo empate<br>"
+            this._content.innerHTML += "Hubo empate<br>"
         }
 
         ganadores.forEach(jugador => {
             console.log(jugador.Nombre)
-            this._content += `${jugador.Nombre}<br>`
+            this._content.innerHTML += `${jugador.Nombre}<br>`
         });
 
     }
